@@ -1,0 +1,13 @@
+<h1>Heroes List</h1>
+<mat-divider></mat-divider>
+<br>
+
+<!-- Podia hacer esto fxLayout.xs="column" para que cuando este en pantallas muy pequeñas entonces las card se muestren
+    en una sola columna, pero mejor le agregué fxFlex.xs="100" -->
+<div fxLayout="row wrap" fxLayoutAlign="space-evenly">
+    <div fxFlex="30" fxFlex.xs="100" fxFlex.sm="50" fxFlex.lg="20" *ngFor="let hero of arrayHeroes">
+
+        <app-hero-tarjeta [heroChild]="hero"></app-hero-tarjeta>
+
+    </div>
+</div>

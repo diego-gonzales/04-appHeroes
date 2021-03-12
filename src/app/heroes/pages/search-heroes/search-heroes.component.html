@@ -1,0 +1,33 @@
+<h1>Hero Searcher</h1>
+<mat-divider></mat-divider>
+<br>
+
+<div fxLayout="column">
+    <mat-form-field>
+
+        <mat-label>Search a Hero</mat-label>
+
+        <input type="text"
+               placeholder="Write the hero's name here"
+               aria-label="Hero"
+               matInput
+               [(ngModel)]="termino"
+               [matAutocomplete]="auto"
+               (input)="searchHero()">
+
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="myOptionSelected($event)">
+          <mat-option *ngFor="let hero of arrayHeroes" [value]="hero.superhero">
+            {{hero.superhero}}
+          </mat-option>
+          <mat-option *ngIf="!arrayHeroes.length && termino.trim().length > 0" value="">No found results for '{{termino}}'</mat-option>
+        </mat-autocomplete>
+
+    </mat-form-field>
+</div>
+
+
+<div *ngIf="hero" fxLayout="row" fxLayoutAlign="space-evenly">
+    <div fxFlex="50" fxFlex.xs="100">
+        <app-hero-tarjeta [heroChild]="hero"></app-hero-tarjeta>
+    </div>
+</div>

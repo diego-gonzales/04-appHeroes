@@ -1,0 +1,55 @@
+<!-- ESTO ES COMO UN SHARED O COMO EL APP.COMPONENT.HTML PRINCIPAL-->
+
+<mat-sidenav-container fullscreen>
+
+    <mat-sidenav #mysidenav mode="push">
+
+        <mat-toolbar color="primary">
+            <span>Menu</span>
+
+            <!-- Esto solo ayudará a que el boton logout vaya a final derecho de la pagina -->
+            <span class="espaciador"></span>
+
+            <button mat-icon-button (click)="mysidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </mat-toolbar>
+
+        <mat-nav-list>
+            <!-- Pongo ese './' en la ruta ya que con eso le indicamos que queremos ir a esa ruta de las rutas actuales (/heroes) -->
+            <a mat-list-item routerLink="./list" (click)="mysidenav.toggle()">
+                <mat-icon mat-list-icon>label</mat-icon>
+                <span>List of Heroes</span>
+            </a>
+            <a mat-list-item routerLink="./add" (click)="mysidenav.toggle()">
+                <mat-icon mat-list-icon>add</mat-icon>
+                <span>Add Hero</span>
+            </a>
+            <a mat-list-item routerLink="./search" (click)="mysidenav.toggle()">
+                <mat-icon mat-list-icon>search</mat-icon>
+                <span>Search Hero</span>
+            </a>
+        </mat-nav-list>
+
+    </mat-sidenav>
+
+    <mat-toolbar>
+        <button mat-icon-button (click)="mysidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <!-- Esto solo ayudará a que el boton logout vaya a final derecho de la pagina -->
+        <span class="espaciador"></span>
+
+        <button mat-raised-button>
+            Logout
+        </button>
+    </mat-toolbar>
+
+
+    <!-- ROUTER OULTET -->
+    <div class="mi-container animate__animated animate__fadeIn">
+        <router-outlet></router-outlet>
+    </div>
+
+</mat-sidenav-container>
