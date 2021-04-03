@@ -41,7 +41,9 @@
         <!-- Esto solo ayudará a que el boton logout vaya a final derecho de la pagina -->
         <span class="espaciador"></span>
 
-        <button mat-raised-button>
+        <span>{{user.usuario}}</span>
+
+        <button mat-raised-button (click)="logout()">
             Logout
         </button>
     </mat-toolbar>
